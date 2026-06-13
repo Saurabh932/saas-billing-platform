@@ -38,6 +38,8 @@ gem "solid_cable"
 # Code quality
 gem "rubocop-rails-omakase", require: false
 
+gem "importmap-rails"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "rspec-rails"
