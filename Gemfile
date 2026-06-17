@@ -47,6 +47,7 @@ group :development, :test do
   gem "faker"
   gem "brakeman", require: false
   gem "bundler-audit", require: false
+  gem "dotenv-rails"
 end
 
 group :development do
