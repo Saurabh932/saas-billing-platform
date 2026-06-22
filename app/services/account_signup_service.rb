@@ -8,7 +8,7 @@ class AccountSignupService
     end
 
     def call
-        ActiveRecord::Base.transaction do 
+        ActiveRecord::Base.transaction do
             account = Account.create!(name: @params[:org_name],
                                       subdomain: generate_subdomain(@params[:org_name]),
                                       email: @params[:email],
@@ -36,6 +36,6 @@ class AccountSignupService
 
     private
     def generate_subdomain(org_name)
-        org_name.downcase.gsub(/[^a-z0-9\s]/, '').gsub(/\s+/, '-') 
+        org_name.downcase.gsub(/[^a-z0-9\s]/, "").gsub(/\s+/, "-")
     end
 end
