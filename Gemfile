@@ -59,3 +59,6 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers"
 end
+
+
+gem 'ostruct'

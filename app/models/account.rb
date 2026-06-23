@@ -8,5 +8,5 @@ class Account < ApplicationRecord
 
     validates :name, presence: true
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-    validates :subdomain, presence: true, uniqueness: true, format: { with: /\A[a-z0-9]+\z/, message: "only lowercase letters, numbers and hyphens." }
+    validates :subdomain, presence: true, uniqueness: true, format: { with: /\A[a-z0-9-]+\z/, message: "only lowercase letters, numbers and hyphens." }
 end
