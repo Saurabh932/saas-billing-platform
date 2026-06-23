@@ -61,4 +61,4 @@ group :test do
 end
 
 
-gem 'ostruct'
+gem "ostruct"

@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 class AccountSignupService
     def self.call(params)
