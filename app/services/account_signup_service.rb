@@ -11,8 +11,8 @@ class AccountSignupService
 
     def call
         ActiveRecord::Base.transaction do
-            account = Account.create!(name: @params[:org_name],
-                                      subdomain: generate_subdomain(@params[:org_name]),
+            account = Account.create!(name: @params.dig(:account, :org_name),
+                                      subdomain: generate_subdomain(@params.dig(:account, :org_name)),
                                       email: @params[:email],
                                       status: :active)
 
