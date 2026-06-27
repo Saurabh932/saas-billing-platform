@@ -52,6 +52,7 @@ end
 
 group :development do
   gem "web-console"
+  gem "letter_opener"
 end
 
 group :test do
@@ -62,3 +63,4 @@ end
 
 
 gem "ostruct"
+gem "letter_opener"

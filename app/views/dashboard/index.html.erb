@@ -1,0 +1,49 @@
+<h1>Dashboard</h1>
+
+<h2>User Information</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= current_user.first_name %> <%= current_user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= current_user.role %>
+</p>
+
+<hr>
+
+<h2>Company Information</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @account.email %>
+</p>
+
+<p>
+  <strong>Subdomain:</strong>
+  <%= @account.subdomain %>
+</p>
+
+<h2>Subscription</h2>
+<% if @subscription %>
+  <p><strong>Plan:</strong> <%= @subscription.plan.name %></p>
+<% else %>
+  <p>No active plan. <%= link_to "Choose a plan", "#" %></p>
+<% end %>
+
+<p>
+  <strong>Status:</strong>
+  <%= @account.status %>
+</p>
