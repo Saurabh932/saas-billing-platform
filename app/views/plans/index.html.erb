@@ -1,0 +1,16 @@
+<h1>Plans</h1>
+
+<p><strong>Here you can explore the plans and choose which one you want for your work.</strong></p>
+
+<% @plans.each do |plan| %>
+  <li>
+    <strong><%= plan.name %></strong>
+    <strong>Price:</strong> <%= plan.price_cents %> cents
+    <ul>
+      <% plan.features.each do |feature| %>
+        <li><%= feature %></li>
+      <% end %>
+      <%= link_to "Choose #{plan.name}", "#", class: "button" %>
+    </ul>
+  </li>
+<% end %>
