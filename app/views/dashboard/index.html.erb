@@ -40,7 +40,7 @@
 <% if @subscription %>
   <p><strong>Plan:</strong> <%= @subscription.plan.name %></p>
 <% else %>
-  <p>No active plan. <%= link_to "Choose a plan", "#" %></p>
+  <p>No active plan. <%= link_to "Choose a plan", "/plan" %></p>
 <% end %>
 
 <p>
