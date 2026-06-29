@@ -1,0 +1,13 @@
+To connect ssh:
+                ssh saurabh-mandhalkar@192.168.12.128
+
+To run server:
+              rails s -b 0.0.0.0
+
+To resolve RuboCop:
+                    bin/rubocop -A
+
+To resolve Bundler Audit:
+                        bundle exec bundler-audit update
+                        bundle exec bundler-audit check
+                        bundle update <gem_name>
