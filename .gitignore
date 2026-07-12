@@ -34,4 +34,6 @@
 /config/*.key
 
 Document.txt
-commands.txt
+commands.txt.env
+
+/home/saurabh-mandhalkar/saas-billing-platform/.env.env
