@@ -1,4 +1,4 @@
-namespace :plans do 
+namespace :plans do
     desc "you description here"
     task seed: :environment do
         puts "===== STARTING PLAN SEED ====="

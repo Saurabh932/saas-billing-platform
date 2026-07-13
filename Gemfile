@@ -65,4 +65,4 @@ end
 gem "ostruct"
 gem "letter_opener"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: [ :development, :test ]
