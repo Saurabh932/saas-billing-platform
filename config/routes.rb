@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard#index"
   get "/plans", to: "plans#index"
   root to: "home#index"
+
+  resources :subscriptions, only: [ :create ]
 end
