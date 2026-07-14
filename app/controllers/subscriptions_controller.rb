@@ -7,6 +7,8 @@ class SubscriptionsController < ApplicationController
             plan: plan
         )
 
+        Rails.logger.error "Stripe error: #{result.error}" unless result.success?
+
         if result.success?
             redirect_to result.checkout_url, allow_other_host: true
         else
