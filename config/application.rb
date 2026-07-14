@@ -1,6 +1,6 @@
 require_relative "boot"
 require "rails/all"
-require 'dotenv-rails'
+require "dotenv-rails"
 
 Dotenv::Rails.load
 # Require the gems listed in Gemfile, including any gems

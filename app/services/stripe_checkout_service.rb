@@ -9,17 +9,17 @@ class StripeCheckoutService
         @account = account
         @plan = plan
 
-        Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+        Stripe.api_key = ENV["STRIPE_SECRET_KEY"]
     end
 
     def call
         session = Stripe::Checkout::Session.create(
             mode: "subscription",
             customer: @account.stripe_customer,
-            line_items: [{
+            line_items: [ {
                 price: @plan.stripe_price_id,
                 quantity: 1
-            }],
+            } ],
             success_url: success_url,
             cancel_url: cancel_url
         )
