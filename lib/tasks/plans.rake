@@ -7,8 +7,8 @@ namespace :plans do
             {
                 name: "Basic",
                 price_cents: 900,
-                interval: :month,
-                stripe_price_id: :price_basic,
+            interval: :month,~
+                stripe_price_id: "price_1TtCBRByTjGWFMUpplyxcfOX",
                 features: [
                             "Up to 3 projects",
                             "5 GB storage",
