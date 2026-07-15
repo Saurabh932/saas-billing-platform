@@ -13,11 +13,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  #
 
-  get "/dashboard", to: "dashboard#index"
-  get "/plans", to: "plans#index"
+  # Home or Index
   root to: "home#index"
 
+  # Dashboard
+  get "/dashboard", to: "dashboard#index"
+
+  # Plans
+  get "/plans", to: "plans#index"
+
+  # Subscription
   resources :subscriptions, only: [ :create ]
+
+  # Stirpe Webhook
+  post "/webhooks/stripe", to: "webhooks#stripe"
 end

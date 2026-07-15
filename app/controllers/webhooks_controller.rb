@@ -1,0 +1,2 @@
+class WebhookaController < ApplicationController
+end
