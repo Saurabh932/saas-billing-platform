@@ -1,49 +1,133 @@
-<h1>Dashboard</h1>
+<div class="min-vh-100 bg-light">
 
-<h2>User Information</h2>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand bg-white shadow-sm py-3 mb-4">
+    <div class="container-xl d-flex align-items-center justify-content-between">
+      <h1 class="navbar-brand h2 fw-bold text-primary mb-0">
+        SaaS App
+      </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= current_user.first_name %> <%= current_user.last_name %>
-</p>
+      <div class="d-flex align-items-center gap-4">
+        <a href="#" class="nav-link text-secondary link-primary">Dashboard</a>
+        <a href="#" class="nav-link text-secondary link-primary">Profile</a>
 
-<p>
-  <strong>Email:</strong>
-  <%= current_user.email %>
-</p>
+        <%= button_to "Logout",
+            destroy_user_session_path,
+            method: :delete,
+            class: "btn btn-danger px-3 py-2 rounded-3" %>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Role:</strong>
-  <%= current_user.role %>
-</p>
+  <div class="container-xl py-4">
 
-<hr>
+    <!-- Welcome -->
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold text-dark">
+        Welcome, <%= current_user.first_name %> 👋
+      </h1>
+      <p class="text-muted">
+        Here's an overview of your account.
+      </p>
+    </div>
 
-<h2>Company Information</h2>
+    <!-- Summary Cards -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
 
-<p>
-  <strong>Name:</strong>
-  <%= @account.name %>
-</p>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4">
+          <p class="text-muted mb-1 small uppercase font-monospace">User</p>
+          <h2 class="h5 fw-semibold mt-2 text-dark">
+            <%= current_user.first_name %> <%= current_user.last_name %>
+          </h2>
+          <div class="mt-2">
+            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2">
+              <%= current_user.role.titleize %>
+            </span>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @account.email %>
-</p>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4">
+          <p class="text-muted mb-1 small uppercase font-monospace">Company</p>
+          <h2 class="h5 fw-semibold mt-2 text-dark">
+            <%= @account.name %>
+          </h2>
+          <p class="text-secondary mt-2 mb-0">
+            <%= @account.subdomain %>
+          </p>
+        </div>
+      </div>
 
-<p>
-  <strong>Subdomain:</strong>
-  <%= @account.subdomain %>
-</p>
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm p-4">
+          <p class="text-muted mb-1 small uppercase font-monospace">Subscription</p>
+          <% if @subscription %>
+            <h2 class="h5 fw-semibold mt-2 text-dark">
+              <%= @subscription.plan.name %>
+            </h2>
+            <div class="mt-2">
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
+                Active
+              </span>
+            </div>
+          <% else %>
+            <p class="mt-2 text-secondary mb-0">
+              No active subscription
+            </p>
+          <% end %>
+        </div>
+      </div>
 
-<h2>Subscription</h2>
-<% if @subscription %>
-  <p><strong>Plan:</strong> <%= @subscription.plan.name %></p>
-<% else %>
-  <p>No active plan. <%= link_to "Choose a plan", "/plan" %></p>
-<% end %>
+    </div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @account.status %>
-</p>
+    <!-- Details -->
+    <div class="card border-0 shadow-sm mb-4">
+      <div class="card-header bg-white border-bottom px-4 py-3">
+        <h2 class="h5 fw-semibold mb-0 text-dark">
+          Company Details
+        </h2>
+      </div>
+
+      <div class="card-body p-4">
+        <div class="row g-4">
+          
+          <div class="col-12 col-md-6">
+            <p class="text-muted small mb-1">Company Name</p>
+            <p class="fw-medium text-dark mb-0"><%= @account.name %></p>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <p class="text-muted small mb-1">Email</p>
+            <p class="fw-medium text-dark mb-0"><%= @account.email %></p>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <p class="text-muted small mb-1">Subdomain</p>
+            <p class="fw-medium text-dark mb-0"><%= @account.subdomain %></p>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <p class="text-muted small mb-1">Status</p>
+            <div>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
+                <%= @account.status.titleize %>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <% unless @subscription %>
+      <div class="mt-4 text-center">
+        <%= link_to "Choose a Plan",
+            plans_path,
+            class: "btn btn-primary btn-lg px-4 py-3 rounded-3" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
