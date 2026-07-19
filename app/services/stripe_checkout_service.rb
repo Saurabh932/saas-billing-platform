@@ -20,6 +20,9 @@ class StripeCheckoutService
                 price: @plan.stripe_price_id,
                 quantity: 1
             } ],
+            metadata: {
+                plan_id: @plan.id
+            },
             success_url: success_url,
             cancel_url: cancel_url
         )
